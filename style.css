@@ -1,0 +1,197 @@
+body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.main-container {
+    min-width: 100%;
+    min-height: 100%;
+    position: relative;
+    background-image: url('img/background-image.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.main-container p {
+    margin: 0;
+}
+
+.main-header-container {
+    width: 55%;
+    margin-left: 3%;
+    padding-top: 20%;
+    overflow: hidden;
+}
+
+.main-header {
+    font-size: 48px;
+    line-height: 58px;
+    font-weight: 700;
+    font-family: "MyriadPro", sans-serif;
+    color: #fff;
+    width: 95%;
+    text-transform: uppercase;
+}
+
+.main-header-container img {
+    width: 100%;
+    min-width: 600px;
+}
+
+.main-header-container p:last-child {
+    font-size: 30px;
+    line-height: 30px;
+    font-family: "MyriadPro", sans-serif;
+    color: #fff;
+    margin-top: 2%;
+}
+.button-container {
+    text-align: center;
+    margin-top: 7%;
+}
+
+.button-container a {
+    font-size: 20px;
+    line-height: 20px;
+    font-family: "MyriadPro", sans-serif;
+    color: #fff;
+    padding: 10px 30px;
+    border: 2px solid #fff;
+    border-radius: 2px;
+    text-decoration: none;
+}
+
+.form-container {
+    text-align: center;
+    margin-bottom: 200px;
+    margin-top: 20px;
+}
+
+form {
+    display: inline-block;
+    padding: 0 40px;
+    padding-bottom: 15px;
+    /*background: #e1e1e1;*/
+    /*border-radius: 4px;*/
+    background-image: url("img/form.png");
+    background-size: cover;
+}
+
+input[type="text"],
+input[type="email"] {
+    vertical-align: bottom;
+    height: 23px;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    width: 200px;
+    margin-top: 15px;
+    display: inline-block;
+}
+
+input[type="submit"] {
+    vertical-align: bottom;
+    background: #ec008c;
+    border: 1px solid #ec008c;
+    border-radius: 3px;
+    height: 27px;
+    font-size: 14px;
+    color: #fff;
+    width: 200px;
+    margin-top: 15px;
+    display: inline-block;
+}
+
+/*form::after {
+    content: '';
+    position: absolute; !* Абсолютное позиционирование *!
+    left: 21.5%;
+    bottom: -10.3%; !* Положение треугольника *!
+    border: 20px solid transparent; !* Прозрачные границы *!
+    border-right: 20px solid #e1e1e1; !* Добавляем треугольник *!
+}*/
+
+::-webkit-input-placeholder {text-overflow:ellipsis; color: #ec008c;}
+::-moz-placeholder          {text-overflow:ellipsis; color: #ec008c;}/* Firefox 19+ */
+:-moz-placeholder           {text-overflow:ellipsis; color: #ec008c;}/* Firefox 18- */
+:-ms-input-placeholder      {text-overflow:ellipsis; color: #ec008c;}
+
+/* плавное изменение прозрачности  placeholder-а при фокусе */
+/*
+input::-webkit-input-placeholder       {opacity: 1; transition: opacity 0.3s ease;}
+input::-moz-placeholder                {opacity: 1; transition: opacity 0.3s ease;}
+input:-moz-placeholder                 {opacity: 1; transition: opacity 0.3s ease;}
+input:-ms-input-placeholder            {opacity: 1; transition: opacity 0.3s ease;}
+input:focus::-webkit-input-placeholder {opacity: 0; transition: opacity 0.3s ease;}
+input:focus::-moz-placeholder          {opacity: 0; transition: opacity 0.3s ease;}
+input:focus:-moz-placeholder           {opacity: 0; transition: opacity 0.3s ease;}
+input:focus:-ms-input-placeholder      {opacity: 0; transition: opacity 0.3s ease;}*/
+
+/* сдвиг placeholder-а вправо при фокусе*/
+
+input::-webkit-input-placeholder       {text-indent: 0px;   transition: text-indent 0.5s ease;}
+input::-moz-placeholder                {text-indent: 0px;   transition: text-indent 0.5s ease;}
+input:-moz-placeholder                 {text-indent: 0px;   transition: text-indent 0.5s ease;}
+input:-ms-input-placeholder            {text-indent: 0px;   transition: text-indent 0.5s ease;}
+input:focus::-webkit-input-placeholder {text-indent: 500px; transition: text-indent 0.5s ease;}
+input:focus::-moz-placeholder          {text-indent: 500px; transition: text-indent 0.5s ease;}
+input:focus:-moz-placeholder           {text-indent: 500px; transition: text-indent 0.5s ease;}
+input:focus:-ms-input-placeholder      {text-indent: 500px; transition: text-indent 0.5s ease;}
+
+/* сдвиг placeholder-а вниз при фокусе*/
+
+/*
+input::-webkit-input-placeholder       {line-height: 20px;  transition: line-height 0.5s ease;}
+input::-moz-placeholder                {line-height: 20px;  transition: line-height 0.5s ease;}
+input:-moz-placeholder                 {line-height: 20px;  transition: line-height 0.5s ease;}
+input:-ms-input-placeholder            {line-height: 20px;  transition: line-height 0.5s ease;}
+input:focus::-webkit-input-placeholder {line-height: 100px; transition: line-height 0.5s ease;}
+input:focus::-moz-placeholder          {line-height: 100px; transition: line-height 0.5s ease;}
+input:focus:-moz-placeholder           {line-height: 100px; transition: line-height 0.5s ease;}
+input:focus:-ms-input-placeholder      {line-height: 100px; transition: line-height 0.5s ease;}*/
+
+@media only screen and (max-width: 1200px) {
+    .button-container {
+        margin-top: 5%;
+    }
+
+    .main-header {
+        font-size: 34px;
+        line-height: 40px;
+        font-weight: 700;
+    }
+
+    .main-header-container p:last-child {
+        font-size: 20px;
+        line-height: 20px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .button-container {
+        margin-top: 15%;
+    }
+
+    .main-header {
+        font-size: 24px;
+        line-height: 28px;
+        font-weight: 700;
+    }
+
+    .main-header-container p:last-child {
+        font-size: 16px;
+        line-height: 16px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="submit"]{
+        height: 33px;
+        width: 200px;
+        margin-top: 15px;
+    }
+    .main-header-container {
+        padding-top: 10%;
+    }
+
+}

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Вакансия звездного турменеджера</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery-3.1.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".button-container").on("click","a", function (event) {
+                //отменяем стандартную обработку нажатия по ссылке
+                event.preventDefault();
+
+                //забираем идентификатор бока с атрибута href
+                var id  = $(this).attr('href'),
+
+                //узнаем высоту от начала страницы до блока на который ссылается якорь
+                        top = $(id).offset().top;
+
+                //анимируем переход на расстояние - top за 700 мс
+                $('body,html').animate({scrollTop: top}, 700);
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="main-container">
+    <div class="main-header-container">
+        <img src="img/pink-line.jpg">
+        <p class="main-header">Разыскиваем звездного турменеджера</p>
+        <p>Работа мечты для профессионалов туризма</p>
+    </div>
+    <div class="button-container">
+        <a href="#form-container">Узнать больше</a>
+    </div>
+</div>
+<div class="form-container" id="form-container">
+    <form action="sendmessage.php" method="post">
+        <input type="text" id="name" name="name" placeholder="Ваше имя">
+        <input type="email" id="email" name="email" placeholder="Ваш email">
+        <input type="submit" value="Отправить">
+    </form>
+</div>
+</body>
+</html>
