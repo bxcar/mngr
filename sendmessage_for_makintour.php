@@ -1,47 +1,46 @@
 <?php
 
-$sendto = 'malanchukdima@mail.ru'; //Адреса, куда будут приходить письма mk@makintour.com
+$sendto  = 'malanchukdima@mail.ru'; //Адреса, куда будут приходить письма mk@makintour.com
 
-$name = $_POST['name'];
-$email = $_POST['email'];
+$name  = $_POST['name'];
+$email  = $_POST['email'];
 
 // Формирование заголовка письма
 
-$subject = '[Новая заявка - Manager]';
+$subject  = '[Новая заявка - Manager]';
 $headers = "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: text/html;charset=utf-8 \r\n";
 // Формирование тела письма
 
-$msg = "<html><body style='font-family:Arial,sans-serif;'>";
+$msg  = "<html><body style='font-family:Arial,sans-serif;'>";
 $msg .= "<h2 style='font-weight:bold;border-bottom:1px dotted #ccc;'>Новая заявка - Manager</h2>\r\n";
-$msg .= "<p><strong>Имя:</strong> " . $name . "</p>\r\n";
-$msg .= "<p><strong>Email:</strong> " . $email . "</p>\r\n";
+$msg .= "<p><strong>Имя:</strong> ".$name."</p>\r\n";
+$msg .= "<p><strong>Email:</strong> ".$email."</p>\r\n";
 $msg .= "</body></html>";
 
 $data = [
-    'email' => $email,
-    'status' => 'subscribed',
+    'email'     => $email,
+    'status'    => 'subscribed',
     'firstname' => $name,
-    'lastname' => 'doe'
+    'lastname'  => 'doe'
 ];
 
 syncMailchimp($data);
 
-function syncMailchimp($data)
-{
-    $apiKey = '50d8d9d5f632edf41927bd8ee636eb94-us12';
+function syncMailchimp($data) {
+    $apiKey = 'f4503af4a70ee45494499a9e240ac08c-us12';
     $listId = '46f9f4fd80';
 
     $memberId = md5(strtolower($data['email']));
-    $dataCenter = substr($apiKey, strpos($apiKey, '-') + 1);
+    $dataCenter = substr($apiKey,strpos($apiKey,'-')+1);
     $url = 'https://' . $dataCenter . '.api.mailchimp.com/3.0/lists/' . $listId . '/members/' . $memberId;
 
     $json = json_encode([
         'email_address' => $data['email'],
-        'status' => $data['status'], // "subscribed","unsubscribed","cleaned","pending"
-        'merge_fields' => [
-            'FNAME' => $data['firstname'],
-            'LNAME' => $data['lastname']
+        'status'        => $data['status'], // "subscribed","unsubscribed","cleaned","pending"
+        'merge_fields'  => [
+            'FNAME'     => $data['firstname'],
+            'LNAME'     => $data['lastname']
         ]
     ]);
 
@@ -63,10 +62,10 @@ function syncMailchimp($data)
 }
 
 // отправка сообщения
-if (@mail($sendto, $subject, $msg, $headers)) {
+if(@mail($sendto, $subject, $msg, $headers)) {
     header("Location: http://www.makintour.com/lp/mpt/thanks.html");
-}
-else {
+} else {
     header("Location: http://www.makintour.com/lp/mpt/error.html");
 }
+
 ?>
